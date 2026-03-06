@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react';
 import Link from 'next/link';
 import type { CaseV1 } from '@/lib/cases';
+import ConfidenceBadge from '@/components/confidence-badge';
 
 type Props = {
   cases: CaseV1[];
@@ -150,7 +151,7 @@ export default function CaseBrowser({ cases }: Props) {
                   <div className="text-lg font-medium leading-snug">{c.title}</div>
                   <div className="mt-1 text-xs text-neutral-500">Domain: {c.domain}</div>
                 </div>
-                <div className="text-xs text-neutral-500">{c.impact.confidence}</div>
+                <ConfidenceBadge confidence={c.impact.confidence} />
               </div>
 
               <div className="mt-3 text-sm text-neutral-700 line-clamp-3">{c.problem}</div>

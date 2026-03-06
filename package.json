@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "validate:cases": "node scripts/validate-cases.mjs",
-    "test": "pnpm validate:cases && pnpm lint"
+    "test:impact": "node --test test/impact-calculator.test.mjs",
+    "test": "pnpm validate:cases && pnpm test:impact && pnpm lint"
   },
   "dependencies": {
     "ajv": "^8.18.0",
