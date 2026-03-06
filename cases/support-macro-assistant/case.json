@@ -1,0 +1,36 @@
+{
+  "id": "support-macro-assistant",
+  "slug": "support-macro-assistant",
+  "title": "Support Macro Assistant",
+  "domain": "support",
+  "tags": [
+    "customer-support",
+    "macros",
+    "response-quality"
+  ],
+  "nominations": [
+    "optimization",
+    "scalable"
+  ],
+  "problem": "Support agents repeatedly rewrite similar responses, leading to inconsistent tone, slower first-response times, and accidental omission of required troubleshooting steps.",
+  "solution": "This assistant suggests context-aware reply macros tailored to ticket intent, account tier, and policy constraints, while preserving brand tone and mandatory compliance language.",
+  "impact": {
+    "time_saved_min_per_user_per_day": 26,
+    "users_affected": 52,
+    "confidence": "draft",
+    "notes": "Designed for tier-1 and tier-2 queues; goal is 20% faster resolution and improved CSAT consistency."
+  },
+  "owner": {
+    "name": "TBD (Owner Name)",
+    "team": "TBD (Team Name)",
+    "contact": "tbd-owner@example.com"
+  },
+  "kit": {
+    "prompt_pack": [
+      "cases/support-macro-assistant/kit/prompts/support-macro-assistant.md"
+    ],
+    "runbook": "cases/support-macro-assistant/kit/RUNBOOK.md",
+    "repo_url": null,
+    "demo_url": null
+  }
+}

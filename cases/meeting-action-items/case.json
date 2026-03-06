@@ -1,0 +1,36 @@
+{
+  "id": "meeting-action-items",
+  "slug": "meeting-action-items",
+  "title": "Meeting Action Items",
+  "domain": "product",
+  "tags": [
+    "meetings",
+    "execution",
+    "project-management"
+  ],
+  "nominations": [
+    "optimization",
+    "scalable"
+  ],
+  "problem": "Teams leave meetings without clear ownership or deadlines, causing follow-up drift and repeated discussions that slow product delivery.",
+  "solution": "The assistant converts transcripts and notes into deduplicated action items with owner placeholders, due dates, dependencies, and a concise decision log ready for tracker sync.",
+  "impact": {
+    "time_saved_min_per_user_per_day": 20,
+    "users_affected": 34,
+    "confidence": "draft",
+    "notes": "Targeting PM, design, and engineering rituals; expected to cut coordination overhead by two follow-up messages per meeting."
+  },
+  "owner": {
+    "name": "TBD (Owner Name)",
+    "team": "TBD (Team Name)",
+    "contact": "tbd-owner@example.com"
+  },
+  "kit": {
+    "prompt_pack": [
+      "cases/meeting-action-items/kit/prompts/meeting-action-items.md"
+    ],
+    "runbook": "cases/meeting-action-items/kit/RUNBOOK.md",
+    "repo_url": null,
+    "demo_url": null
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "finops-llm-cost-guard",
+  "slug": "finops-llm-cost-guard",
+  "title": "FinOps LLM Cost Guard",
+  "domain": "ops",
+  "tags": [
+    "finops",
+    "llm",
+    "cost-control"
+  ],
+  "nominations": [
+    "optimization",
+    "technical"
+  ],
+  "problem": "LLM usage grows quickly across teams, but token spend visibility is fragmented, making it hard to detect runaway prompts, expensive model defaults, or low-value usage patterns.",
+  "solution": "A cost guard monitors model usage telemetry, detects anomalies by team and workflow, and proposes guardrails such as caching, model downgrades, and prompt compression with estimated savings.",
+  "impact": {
+    "time_saved_min_per_user_per_day": 18,
+    "users_affected": 45,
+    "confidence": "draft",
+    "notes": "Early benchmark indicates potential monthly spend reduction of 18–25% without reducing SLA quality."
+  },
+  "owner": {
+    "name": "TBD (Owner Name)",
+    "team": "TBD (Team Name)",
+    "contact": "tbd-owner@example.com"
+  },
+  "kit": {
+    "prompt_pack": [
+      "cases/finops-llm-cost-guard/kit/prompts/finops-llm-cost-guard.md"
+    ],
+    "runbook": "cases/finops-llm-cost-guard/kit/RUNBOOK.md",
+    "repo_url": null,
+    "demo_url": null
+  }
+}

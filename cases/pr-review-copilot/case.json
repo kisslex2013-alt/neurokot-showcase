@@ -1,0 +1,36 @@
+{
+  "id": "pr-review-copilot",
+  "slug": "pr-review-copilot",
+  "title": "PR Review Copilot",
+  "domain": "dev",
+  "tags": [
+    "code-review",
+    "pull-requests",
+    "quality"
+  ],
+  "nominations": [
+    "technical",
+    "optimization"
+  ],
+  "problem": "Engineering teams spend too much time on repetitive pull request checks, while important architecture and security concerns are reviewed inconsistently across reviewers and time zones.",
+  "solution": "An AI copilot analyzes each PR diff, maps changes to repository conventions, and drafts structured review comments for style, test gaps, security smells, and risky dependency updates before human approval.",
+  "impact": {
+    "time_saved_min_per_user_per_day": 32,
+    "users_affected": 28,
+    "confidence": "draft",
+    "notes": "Pilot estimate based on 180 PRs/month; target is reducing first review turnaround by 35% while keeping defect escape rate flat."
+  },
+  "owner": {
+    "name": "TBD (Owner Name)",
+    "team": "TBD (Team Name)",
+    "contact": "tbd-owner@example.com"
+  },
+  "kit": {
+    "prompt_pack": [
+      "cases/pr-review-copilot/kit/prompts/pr-review-copilot.md"
+    ],
+    "runbook": "cases/pr-review-copilot/kit/RUNBOOK.md",
+    "repo_url": null,
+    "demo_url": null
+  }
+}

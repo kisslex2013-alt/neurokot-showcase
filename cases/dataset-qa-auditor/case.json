@@ -1,0 +1,36 @@
+{
+  "id": "dataset-qa-auditor",
+  "slug": "dataset-qa-auditor",
+  "title": "Dataset QA Auditor",
+  "domain": "ml",
+  "tags": [
+    "data-quality",
+    "mlops",
+    "validation"
+  ],
+  "nominations": [
+    "technical",
+    "scalable"
+  ],
+  "problem": "ML datasets often ship with silent schema drift, label imbalance, and duplicated records that degrade model performance and are discovered only after training cycles are wasted.",
+  "solution": "This auditor validates dataset snapshots against schema and distribution baselines, flags anomalies, and generates a release gate report with pass/fail recommendations and remediation steps.",
+  "impact": {
+    "time_saved_min_per_user_per_day": 27,
+    "users_affected": 22,
+    "confidence": "draft",
+    "notes": "Intended for data scientists and platform engineers; expected to prevent at least one failed training run per sprint."
+  },
+  "owner": {
+    "name": "TBD (Owner Name)",
+    "team": "TBD (Team Name)",
+    "contact": "tbd-owner@example.com"
+  },
+  "kit": {
+    "prompt_pack": [
+      "cases/dataset-qa-auditor/kit/prompts/dataset-qa-auditor.md"
+    ],
+    "runbook": "cases/dataset-qa-auditor/kit/RUNBOOK.md",
+    "repo_url": null,
+    "demo_url": null
+  }
+}

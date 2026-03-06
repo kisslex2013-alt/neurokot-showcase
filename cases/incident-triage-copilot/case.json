@@ -1,0 +1,36 @@
+{
+  "id": "incident-triage-copilot",
+  "slug": "incident-triage-copilot",
+  "title": "Incident Triage Copilot",
+  "domain": "ops",
+  "tags": [
+    "incident-response",
+    "oncall",
+    "triage"
+  ],
+  "nominations": [
+    "optimization",
+    "scalable"
+  ],
+  "problem": "On-call engineers lose time correlating noisy alerts across logs, metrics, and runbooks, which delays incident classification and extends customer-visible downtime.",
+  "solution": "The copilot clusters related alerts, summarizes blast radius, proposes likely root-cause hypotheses, and recommends next actions linked to known runbooks for faster, consistent triage.",
+  "impact": {
+    "time_saved_min_per_user_per_day": 40,
+    "users_affected": 16,
+    "confidence": "draft",
+    "notes": "Based on average weekly incident volume; expected to reduce mean time to triage from 18 to 10 minutes."
+  },
+  "owner": {
+    "name": "TBD (Owner Name)",
+    "team": "TBD (Team Name)",
+    "contact": "tbd-owner@example.com"
+  },
+  "kit": {
+    "prompt_pack": [
+      "cases/incident-triage-copilot/kit/prompts/incident-triage-copilot.md"
+    ],
+    "runbook": "cases/incident-triage-copilot/kit/RUNBOOK.md",
+    "repo_url": null,
+    "demo_url": null
+  }
+}

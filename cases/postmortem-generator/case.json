@@ -1,0 +1,36 @@
+{
+  "id": "postmortem-generator",
+  "slug": "postmortem-generator",
+  "title": "Postmortem Generator",
+  "domain": "ops",
+  "tags": [
+    "postmortem",
+    "reliability",
+    "incident-learning"
+  ],
+  "nominations": [
+    "creative",
+    "optimization"
+  ],
+  "problem": "Post-incident reports are delayed and inconsistent because responders must reconstruct timelines manually from chats, alerts, and ticket updates after high-stress events.",
+  "solution": "The generator compiles incident artifacts into a structured postmortem draft with timeline, impact analysis, root causes, contributing factors, and follow-up actions for review.",
+  "impact": {
+    "time_saved_min_per_user_per_day": 35,
+    "users_affected": 14,
+    "confidence": "draft",
+    "notes": "Expected to reduce postmortem draft time from 3 hours to under 45 minutes per incident."
+  },
+  "owner": {
+    "name": "TBD (Owner Name)",
+    "team": "TBD (Team Name)",
+    "contact": "tbd-owner@example.com"
+  },
+  "kit": {
+    "prompt_pack": [
+      "cases/postmortem-generator/kit/prompts/postmortem-generator.md"
+    ],
+    "runbook": "cases/postmortem-generator/kit/RUNBOOK.md",
+    "repo_url": null,
+    "demo_url": null
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "hiring-screening-helper",
+  "slug": "hiring-screening-helper",
+  "title": "Hiring Screening Helper",
+  "domain": "hr",
+  "tags": [
+    "recruiting",
+    "screening",
+    "talent-ops"
+  ],
+  "nominations": [
+    "optimization",
+    "technical"
+  ],
+  "problem": "Recruiters and hiring managers spend significant time manually screening resumes and interview notes, causing slow pipelines and inconsistent evaluation criteria.",
+  "solution": "The helper summarizes candidate fit against role competencies, flags missing evidence, and proposes structured follow-up questions to improve fairness and decision speed.",
+  "impact": {
+    "time_saved_min_per_user_per_day": 30,
+    "users_affected": 18,
+    "confidence": "draft",
+    "notes": "Pilot for engineering and product roles; calibrated to support, not replace, human hiring decisions."
+  },
+  "owner": {
+    "name": "TBD (Owner Name)",
+    "team": "TBD (Team Name)",
+    "contact": "tbd-owner@example.com"
+  },
+  "kit": {
+    "prompt_pack": [
+      "cases/hiring-screening-helper/kit/prompts/hiring-screening-helper.md"
+    ],
+    "runbook": "cases/hiring-screening-helper/kit/RUNBOOK.md",
+    "repo_url": null,
+    "demo_url": null
+  }
+}

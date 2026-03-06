@@ -1,0 +1,36 @@
+{
+  "id": "knowledge-base-autowiki",
+  "slug": "knowledge-base-autowiki",
+  "title": "Knowledge Base AutoWiki",
+  "domain": "other",
+  "tags": [
+    "knowledge-management",
+    "wiki",
+    "automation"
+  ],
+  "nominations": [
+    "creative",
+    "scalable"
+  ],
+  "problem": "Operational know-how stays in chats and ad-hoc docs, so institutional knowledge decays quickly and onboarding depends on finding the right person at the right time.",
+  "solution": "AutoWiki converts validated conversations and documents into standardized wiki drafts with glossary links, ownership metadata, and review reminders to keep knowledge current.",
+  "impact": {
+    "time_saved_min_per_user_per_day": 22,
+    "users_affected": 70,
+    "confidence": "draft",
+    "notes": "Expected to improve self-serve answer rate and reduce repetitive internal Q&A in shared channels."
+  },
+  "owner": {
+    "name": "TBD (Owner Name)",
+    "team": "TBD (Team Name)",
+    "contact": "tbd-owner@example.com"
+  },
+  "kit": {
+    "prompt_pack": [
+      "cases/knowledge-base-autowiki/kit/prompts/knowledge-base-autowiki.md"
+    ],
+    "runbook": "cases/knowledge-base-autowiki/kit/RUNBOOK.md",
+    "repo_url": null,
+    "demo_url": null
+  }
+}

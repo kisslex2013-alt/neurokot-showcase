@@ -1,0 +1,36 @@
+{
+  "id": "doc-rag-search",
+  "slug": "doc-rag-search",
+  "title": "Doc RAG Search",
+  "domain": "product",
+  "tags": [
+    "documentation",
+    "search",
+    "rag"
+  ],
+  "nominations": [
+    "technical",
+    "scalable"
+  ],
+  "problem": "Internal knowledge is spread across wikis, docs, and runbooks, so teams spend time hunting for authoritative answers and often rely on outdated tribal memory.",
+  "solution": "A retrieval-augmented search assistant indexes approved documentation, answers questions with citations, and highlights confidence gaps when sources are stale or conflicting.",
+  "impact": {
+    "time_saved_min_per_user_per_day": 24,
+    "users_affected": 60,
+    "confidence": "draft",
+    "notes": "Rollout planned for product and engineering; quality tracked via answer acceptance and citation click-through."
+  },
+  "owner": {
+    "name": "TBD (Owner Name)",
+    "team": "TBD (Team Name)",
+    "contact": "tbd-owner@example.com"
+  },
+  "kit": {
+    "prompt_pack": [
+      "cases/doc-rag-search/kit/prompts/doc-rag-search.md"
+    ],
+    "runbook": "cases/doc-rag-search/kit/RUNBOOK.md",
+    "repo_url": null,
+    "demo_url": null
+  }
+}
