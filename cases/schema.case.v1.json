@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/neurokot-showcase/schema.case.v1.json",
+  "title": "NeuroKot Showcase Case v1",
+  "type": "object",
+  "required": ["id", "slug", "title", "domain", "tags", "nominations", "problem", "solution", "impact", "owner", "kit"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {"type": "string", "minLength": 3},
+    "slug": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+    "title": {"type": "string", "minLength": 3},
+    "domain": {"type": "string", "enum": ["dev", "ml", "ops", "product", "support", "hr", "other"]},
+    "tags": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "nominations": {
+      "type": "array",
+      "items": {"type": "string", "enum": ["creative", "optimization", "technical", "scalable"]},
+      "minItems": 1
+    },
+    "problem": {"type": "string", "minLength": 10},
+    "solution": {"type": "string", "minLength": 10},
+    "impact": {
+      "type": "object",
+      "required": ["time_saved_min_per_user_per_day", "users_affected", "confidence", "notes"],
+      "additionalProperties": false,
+      "properties": {
+        "time_saved_min_per_user_per_day": {"type": "number", "minimum": 0},
+        "users_affected": {"type": "integer", "minimum": 0},
+        "confidence": {"type": "string", "enum": ["draft", "measured", "verified"]},
+        "notes": {"type": "string"}
+      }
+    },
+    "owner": {
+      "type": "object",
+      "required": ["name", "team", "contact"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {"type": "string", "minLength": 2},
+        "team": {"type": "string"},
+        "contact": {"type": "string"}
+      }
+    },
+    "kit": {
+      "type": "object",
+      "required": ["prompt_pack", "runbook", "repo_url", "demo_url"],
+      "additionalProperties": false,
+      "properties": {
+        "prompt_pack": {"type": "array", "items": {"type": "string"}},
+        "runbook": {"type": "string"},
+        "repo_url": {"type": ["string", "null"]},
+        "demo_url": {"type": ["string", "null"]}
+      }
+    }
+  }
+}

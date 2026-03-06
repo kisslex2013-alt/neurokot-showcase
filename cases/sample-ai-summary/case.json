@@ -1,0 +1,27 @@
+{
+  "id": "meeting-summarizer",
+  "slug": "meeting-summarizer",
+  "title": "Суммаризация встреч → решения и задачи",
+  "domain": "product",
+  "tags": ["meetings", "summarization", "action-items"],
+  "nominations": ["optimization", "scalable"],
+  "problem": "Решения и action items теряются после созвонов, приходится пересозваниваться и уточнять.",
+  "solution": "Автоматическая сводка + выделение решений/задач + шаблон для трекера.",
+  "impact": {
+    "time_saved_min_per_user_per_day": 15,
+    "users_affected": 10,
+    "confidence": "draft",
+    "notes": "Демо-кейс-заглушка."
+  },
+  "owner": {
+    "name": "TBD",
+    "team": "TBD",
+    "contact": "TBD"
+  },
+  "kit": {
+    "prompt_pack": ["cases/sample-ai-summary/kit/prompts/summary.md"],
+    "runbook": "cases/sample-ai-summary/kit/RUNBOOK.md",
+    "repo_url": null,
+    "demo_url": null
+  }
+}

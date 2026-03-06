@@ -1,0 +1,27 @@
+{
+  "id": "dashboardtt",
+  "slug": "dashboardtt",
+  "title": "DashboardTT: витрина/дашборд статуса (прошлый сезон) — пример кейса",
+  "domain": "ops",
+  "tags": ["dashboard", "status", "automation"],
+  "nominations": ["creative", "scalable"],
+  "problem": "Нет единого места, где быстро увидеть состояние сервисов/задач и понять, что делать дальше.",
+  "solution": "Веб-дашборд, агрегирующий ключевые статусы и дающий быстрые переходы/действия для triage.",
+  "impact": {
+    "time_saved_min_per_user_per_day": 10,
+    "users_affected": 5,
+    "confidence": "draft",
+    "notes": "Примерная оценка для демонстрации; будет уточнена на реальных кейсах."
+  },
+  "owner": {
+    "name": "Алексей",
+    "team": "—",
+    "contact": "@klsorat"
+  },
+  "kit": {
+    "prompt_pack": [],
+    "runbook": "cases/dashboardtt/kit/RUNBOOK.md",
+    "repo_url": "https://github.com/kisslex2013-alt/dashboardtt",
+    "demo_url": "https://dashboardtt.vercel.app/"
+  }
+}
