@@ -21,10 +21,16 @@ export default async function Home() {
         <p className="text-sm text-neutral-600">
           Git-first витрина AI‑кейсов: Problem → Solution → Impact + reusable kit.
         </p>
-        <div className="mt-4">
+        <div className="mt-4 flex flex-wrap gap-2">
+          <Link
+            href="/new-case"
+            className="inline-flex items-center rounded-lg border border-neutral-900 bg-neutral-900 px-4 py-2 text-sm font-medium text-white hover:bg-neutral-800"
+          >
+            New case intake
+          </Link>
           <Link
             href="/docs"
-            className="inline-flex items-center rounded-lg border border-neutral-900 bg-neutral-900 px-4 py-2 text-sm font-medium text-white hover:bg-neutral-800"
+            className="inline-flex items-center rounded-lg border px-4 py-2 text-sm font-medium hover:bg-neutral-50"
           >
             How to add a new case
           </Link>

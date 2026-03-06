@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react';
 import Link from 'next/link';
 import type { CaseV1 } from '@/lib/cases';
+import { calculateImpact } from '@/lib/impact';
 import ConfidenceBadge from '@/components/confidence-badge';
 
 type Props = {
@@ -30,7 +31,8 @@ const nominationOptions: Array<{ value: CaseV1['nominations'][number] | 'all'; l
 
 const sortOptions = [
   { value: 'az', label: 'A–Z' },
-  { value: 'time_saved_desc', label: 'Impact: time saved (desc)' },
+  { value: 'roi_desc', label: 'Impact: ROI (h/week total) (desc)' },
+  { value: 'time_saved_desc', label: 'Impact: time saved (min/user/day) (desc)' },
   { value: 'users_affected_desc', label: 'Impact: users affected (desc)' },
 ] as const;
 
@@ -58,6 +60,12 @@ export default function CaseBrowser({ cases }: Props) {
     });
 
     return filtered.sort((a, b) => {
+      if (sortBy === 'roi_desc') {
+        const impactA = calculateImpact(a.impact).hours_saved_per_week_total;
+        const impactB = calculateImpact(b.impact).hours_saved_per_week_total;
+        return impactB - impactA;
+      }
+
       if (sortBy === 'time_saved_desc') {
         return b.impact.time_saved_min_per_user_per_day - a.impact.time_saved_min_per_user_per_day;
       }
@@ -157,8 +165,16 @@ export default function CaseBrowser({ cases }: Props) {
               <div className="mt-3 text-sm text-neutral-700 line-clamp-3">{c.problem}</div>
 
               <div className="mt-3 rounded-md bg-neutral-50 px-2 py-1 text-xs text-neutral-600">
-                Impact: {c.impact.time_saved_min_per_user_per_day} min/user/day ·{' '}
-                {c.impact.users_affected} users
+                {(() => {
+                  const impact = calculateImpact(c.impact);
+                  return (
+                    <>
+                      Impact: {impact.hours_saved_per_week_total.toFixed(1)} h/week total ·{' '}
+                      {c.impact.time_saved_min_per_user_per_day} min/user/day · {c.impact.users_affected}{' '}
+                      users
+                    </>
+                  );
+                })()}
               </div>
 
               <div className="mt-3 flex flex-wrap gap-2">

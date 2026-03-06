@@ -1,3 +1,5 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
 import Link from 'next/link';
 import { getCaseBySlug, listCases } from '@/lib/cases';
 import ConfidenceBadge from '@/components/confidence-badge';
@@ -25,6 +27,15 @@ function formatMoney(value: number): string {
   }).format(value);
 }
 
+async function readTextFileForPreview(filePath: string): Promise<string | null> {
+  const absolutePath = path.join(process.cwd(), filePath);
+  try {
+    return await fs.readFile(absolutePath, 'utf8');
+  } catch {
+    return null;
+  }
+}
+
 export async function generateStaticParams() {
   const cases = await listCases();
   return cases.map((c) => ({ slug: c.slug }));
@@ -37,6 +48,14 @@ export default async function CasePage({ params, searchParams }: CasePageProps) 
 
   const c = await getCaseBySlug(slug);
   const calculatedImpact = calculateImpact({ ...c.impact, hourly_rate: hourlyRate });
+
+  const runbookContent = await readTextFileForPreview(c.kit.runbook);
+  const promptFiles = await Promise.all(
+    c.kit.prompt_pack.map(async (promptPath) => ({
+      path: promptPath,
+      content: await readTextFileForPreview(promptPath),
+    })),
+  );
 
   return (
     <main className="mx-auto max-w-3xl p-6">
@@ -135,6 +154,24 @@ export default async function CasePage({ params, searchParams }: CasePageProps) 
               </a>
             </div>
           ) : null}
+        </div>
+
+        <div className="mt-4 space-y-4">
+          <div>
+            <div className="mb-1 text-xs font-medium text-neutral-600">{c.kit.runbook}</div>
+            <pre className="overflow-x-auto rounded-lg bg-neutral-50 p-3 text-xs leading-5 text-neutral-800">
+              {runbookContent ?? 'Runbook file not found.'}
+            </pre>
+          </div>
+
+          {promptFiles.map((promptFile) => (
+            <div key={promptFile.path}>
+              <div className="mb-1 text-xs font-medium text-neutral-600">{promptFile.path}</div>
+              <pre className="overflow-x-auto rounded-lg bg-neutral-50 p-3 text-xs leading-5 text-neutral-800">
+                {promptFile.content ?? 'Prompt file not found.'}
+              </pre>
+            </div>
+          ))}
         </div>
       </section>
 
