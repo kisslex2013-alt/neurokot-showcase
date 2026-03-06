@@ -19,6 +19,17 @@ pnpm dev
 ## Docs
 
 - Plan: `docs/plan.md`
+- How to add a case: `docs/how-to-add-case.md`
+
+## Getting started: add a new case
+
+```bash
+node scripts/new-case.mjs <slug> --title "Case title" --domain product --tags ai,automation
+pnpm validate:cases
+pnpm dev
+```
+
+Then open the showcase and verify your case appears in search/filters.
 
 ## Auth / SSO
 

@@ -27,15 +27,24 @@ const nominationOptions: Array<{ value: CaseV1['nominations'][number] | 'all'; l
   { value: 'scalable', label: 'Scalable' },
 ];
 
+const sortOptions = [
+  { value: 'az', label: 'A–Z' },
+  { value: 'time_saved_desc', label: 'Impact: time saved (desc)' },
+  { value: 'users_affected_desc', label: 'Impact: users affected (desc)' },
+] as const;
+
+type SortOption = (typeof sortOptions)[number]['value'];
+
 export default function CaseBrowser({ cases }: Props) {
   const [domain, setDomain] = useState<CaseV1['domain'] | 'all'>('all');
   const [nomination, setNomination] = useState<CaseV1['nominations'][number] | 'all'>('all');
   const [query, setQuery] = useState('');
+  const [sortBy, setSortBy] = useState<SortOption>('az');
 
   const filteredCases = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
 
-    return cases.filter((c) => {
+    const filtered = cases.filter((c) => {
       const domainOk = domain === 'all' || c.domain === domain;
       const nominationOk = nomination === 'all' || c.nominations.includes(nomination);
       const searchOk =
@@ -46,12 +55,24 @@ export default function CaseBrowser({ cases }: Props) {
 
       return domainOk && nominationOk && searchOk;
     });
-  }, [cases, domain, nomination, query]);
+
+    return filtered.sort((a, b) => {
+      if (sortBy === 'time_saved_desc') {
+        return b.impact.time_saved_min_per_user_per_day - a.impact.time_saved_min_per_user_per_day;
+      }
+
+      if (sortBy === 'users_affected_desc') {
+        return b.impact.users_affected - a.impact.users_affected;
+      }
+
+      return a.title.localeCompare(b.title);
+    });
+  }, [cases, domain, nomination, query, sortBy]);
 
   return (
     <>
       <section className="mb-6 rounded-xl border p-4">
-        <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-3 md:grid-cols-4">
           <label className="text-sm">
             <div className="mb-1 text-neutral-600">Domain</div>
             <select
@@ -94,9 +115,26 @@ export default function CaseBrowser({ cases }: Props) {
               className="w-full rounded-lg border px-3 py-2"
             />
           </label>
+
+          <label className="text-sm">
+            <div className="mb-1 text-neutral-600">Sort</div>
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value as SortOption)}
+              className="w-full rounded-lg border px-3 py-2"
+            >
+              {sortOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </label>
         </div>
 
-        <div className="mt-3 text-xs text-neutral-500">Showing {filteredCases.length} of {cases.length} cases</div>
+        <div className="mt-3 text-xs text-neutral-500">
+          Showing {filteredCases.length} of {cases.length} cases
+        </div>
       </section>
 
       {filteredCases.length > 0 ? (
@@ -116,6 +154,11 @@ export default function CaseBrowser({ cases }: Props) {
               </div>
 
               <div className="mt-3 text-sm text-neutral-700 line-clamp-3">{c.problem}</div>
+
+              <div className="mt-3 rounded-md bg-neutral-50 px-2 py-1 text-xs text-neutral-600">
+                Impact: {c.impact.time_saved_min_per_user_per_day} min/user/day ·{' '}
+                {c.impact.users_affected} users
+              </div>
 
               <div className="mt-3 flex flex-wrap gap-2">
                 {c.tags.slice(0, 6).map((t) => (
